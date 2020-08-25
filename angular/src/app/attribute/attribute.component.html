@@ -1,0 +1,74 @@
+<form class="tr" [formGroup]="fg"
+*ngFor="let fg of attributeForms.controls"
+(submit)="recordSubmit(fg)">
+<div class = "td">
+<label>Attribute Name</label>
+<input class="form-control" type="text" formControlName="description">
+<!-- <label>Attribute Code</label>
+<input class="form-control" type="text" formControlName="attribute_code"> -->
+
+</div>
+
+<div class = "td" >
+    <label>Select Entity Type</label>
+    <select class="form-control" formControlName="entity_type" >
+            <option></option>
+        <option value="U">U</option>
+        <option value="C">C</option>
+        <option value="I">I</option>
+        
+    </select>
+</div>
+<div class = "td">
+    <label>Select Attribute Type</label>
+    <select class="form-control"  [(ngModel)]="selectedValue" formControlName="attribute_type">
+         <!-- <option *ngFor ="let item of attributeList" value="{{item.attribute_type}}">
+            {{item.attribute_type}}
+        </option> -->
+        <option value="F">F</option>
+         <option value="S">S</option>
+        <option value="M">M</option>
+        
+    </select>
+
+</div>
+
+<div class="form-control" *ngIf="selectedValue == 'F'" >
+        <label>Regular Expression</label>
+        <input type="text" formControlName="regular_expression">
+    
+            
+</div> 
+
+
+
+
+<div class="grid-table">
+  <div class="thead">
+    <div class="tr">
+      <div class="td">Value Name</div>
+      <div class="td">Sort Order</div>
+      <div class="td">Delete</div>
+  </div>
+  </div>
+  <div class="tbody">
+    <div class="td">
+      <input class="form-control">
+    </div>
+    <div class="td">
+        <input class="form-control" formControlName="sort_order">
+      </div>
+      <div class="td">
+          <input class="form-control" formControlName="is_active">
+        </div>
+  </div>
+ 
+
+  </div>
+  <div class="td">
+      <button type="submit" class="btn btn-success"
+      [disabled]="fg.invalid"
+      >Submit</button>
+  </div>
+
+    </form>
