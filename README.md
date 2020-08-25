@@ -1,6 +1,6 @@
 # Angular:
-Front end Framework. 
-This part includes `Authentication` and `Authorization` (`User` and `admin` roles, each with different permissions)
+Front end Framework.  
+This part includes `Authentication` and `Authorization` (`User` and `admin` roles, each with different permissions) using [Angular 8](https://angular.io/start) 
 
 # WEB API:
 Back end Part.
